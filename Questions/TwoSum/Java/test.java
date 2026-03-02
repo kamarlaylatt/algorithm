@@ -6,18 +6,24 @@ import java.util.Map;
 
 public class test {
     public static void main(String[] args) {
-        int[] nums = { 2, 4, 6, 8 };
-        int target = 66;
+        int[] nums = { 3, 4, 6, 8 };
+        int target = 9;
+        int[] result = new int[2];
+        int index = 0;
+        for (int i = index; i < nums.length; i++) {
 
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            int minusValue = target - nums[i];
-            if (map.containsKey(minusValue)) {
-                var result = new int[] { map.get(minusValue), i };
-                System.out.println(Arrays.toString(result));
-                break;
+            for (int j = (index + 1); j < nums.length; j++) {
+                // System.out.println(i + j);
+                if (nums[i] + nums[j] == target) {
+                    result[0] = i;
+                    result[1] = j;
+                    break;
+                }
+
             }
-            map.put(nums[i], i);
+            index++;
         }
+
+        System.out.println(result[0] + "" + result[1]);
     }
 }
